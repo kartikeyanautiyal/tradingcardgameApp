@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { UserDetails } from '../models/user-details.model';
 import { ResponseToken } from '../models/response-token.model';
 import { JwtHelperService, JwtModule } from "@auth0/angular-jwt";
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { Route, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,7 @@ export class LoginService {
   current_user: any | null
   private _saveUser = "http://localhost:8090/api/v1/user/register";
   private _getuser = "http://localhost:8090/api/v1/user/login";
-  constructor(private http: HttpClient) {
-    localStorage.setItem('loginStatus', 'no');
-    let token = localStorage.getItem('token');
-    if (token) {
-      let jwt = new JwtHelperService();
-      this.current_user = jwt.decodeToken(token);
-    }
+  constructor(private http: HttpClient, private router:Router) {
   }
 
   register(credentials: UserDetails){
@@ -30,31 +25,23 @@ export class LoginService {
     )
   }
 
-  login(credentials: UserDetails) {
-    this.http.post<ResponseToken>(this._getuser, credentials).subscribe(
-      (result) => {
-        console.log(result);
-        if(result && result.token){
-          //console.log("entered login jwt true");
-          let jwt = new JwtHelperService();
-          localStorage.setItem('token', result.token);
-          let tokn: any|null;
-          tokn = localStorage.getItem('token');
-          this.current_user = jwt.decodeToken(tokn);
-          localStorage.setItem('loginStatus','yes');
-          //console.log("value of loginValid - ", this.loginValid);
+  login(credentials:any) {
+    return this.http.post(this._getuser, credentials)
+      .subscribe((result:any) => {
+        if(result && result.token != ""){
+          localStorage.setItem("token", result.token);
+          this.router.navigate(['home']);
         }
-        else{
-          //console.log("entered login jwt false");
-          localStorage.setItem('loginStatus','no');
-        }
-      }
-    );
-   }
 
-   isLoggedIn() {
-    let jwt = new JwtHelperService();
-    // return jwt.isTokenExpired(localStorage.getItem('token'));
-    //return this.loginValid;
+        else{
+          console.log("invalid login");
+          //localStorage.setItem("token", "");
+          this.router.navigate(["sign-in"]);
+        }
+      });
+  }
+
+   isLoggedIn() { 
+      return false;
   }
 }

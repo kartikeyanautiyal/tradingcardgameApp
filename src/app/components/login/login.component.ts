@@ -10,24 +10,14 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
   // user_logged_in: object | undefined;
-  // loginValid: any;
+  invalidlogin: any | boolean;
   constructor(private router: Router, public loginService: LoginService) {
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit(data: UserDetails){
-    console.log(data);
+  onSubmit(data:any){
     this.loginService.login(data);
-
-    if(localStorage.getItem('loginStatus')=='yes'){
-      console.log("entered");
-      this.router.navigate(['home']);
-    }
-
-    else{
-      this.router.navigate(['sign-in']);
-    }
   }
 }
