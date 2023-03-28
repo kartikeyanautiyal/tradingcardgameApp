@@ -41,7 +41,7 @@ export class LoginService {
       });
   }
 
-   isLoggedIn() { 
-      return false;
+  logout(){
+    localStorage.removeItem("token");
   }
 }

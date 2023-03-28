@@ -10,6 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class HomeComponent implements OnInit {
   username:any
   token:string | null = localStorage.getItem("token");
+  status: boolean = false;
   constructor(public loginservice: LoginService) {
   }
 
@@ -17,11 +18,14 @@ export class HomeComponent implements OnInit {
     //console.log(this.loginservice.current_user);
     let jwt = new JwtHelperService();
 
-    if(this.token)
+    if(this.token){
+      this.status = true;
       this.username = jwt.decodeToken(this.token);
+    }
     
-    else
-      console.warn("invalid login");
+    else{
+      this.status = false;
+    }
   }
 
 }

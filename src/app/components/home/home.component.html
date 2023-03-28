@@ -1,1 +1,4 @@
-<p>welcome {{username.sub}}</p>
+<p *ngIf="status">
+  welcome {{username.sub}}
+</p>
+<p *ngIf="!status">Please Sign-In</p>
