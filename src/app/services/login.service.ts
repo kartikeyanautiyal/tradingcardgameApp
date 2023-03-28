@@ -31,14 +31,14 @@ export class LoginService {
         if(result && result.token != ""){
           localStorage.setItem("token", result.token);
           this.router.navigate(['home']);
+          alert("login Successful");
         }
-
-        else{
-          console.log("invalid login");
-          //localStorage.setItem("token", "");
-          this.router.navigate(["sign-in"]);
-        }
-      });
+      },
+      (error) => {    
+        alert("invalid credentials");
+        this.router.navigate(["sign-in"]);                        //Error callback
+      }
+    );
   }
 
   logout(){
