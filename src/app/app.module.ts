@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { Router, RouterModule } from '@angular/router';
 import { LogoutComponent } from './components/logout/logout.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
