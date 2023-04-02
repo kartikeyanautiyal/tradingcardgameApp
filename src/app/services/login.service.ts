@@ -1,10 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserDetails } from '../models/user-details.model';
-import { ResponseToken } from '../models/response-token.model';
-import { JwtHelperService, JwtModule } from "@auth0/angular-jwt";
-import { Observable, map } from 'rxjs';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
