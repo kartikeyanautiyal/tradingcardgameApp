@@ -20,6 +20,7 @@
 <div>
     <textarea [(ngModel)]="prompt"></textarea>
     <button (click)="generateText()">Generate Text</button>
+    <mat-progress-spinner ngIf="showSpinner" mode="indeterminate"></mat-progress-spinner>
     <!-- <div><img src="../../../assets/ZNeT.gif" *ngIf="showSpinner" width="50px" height="50px">waiting..</div> -->
     <p>{{ generatedText }}</p>
   </div>

@@ -30,12 +30,12 @@ export class CardsComponent implements OnInit {
       this.showSpinner = true;
       this.gptService.generateText(this.prompt).subscribe(
         response => {
+          this.showSpinner = false;
           this.generatedText = response.choices[0].message.content;
         },
         error => {
           console.log(error);
         }
       );
-      this.showSpinner = false;
     }
 }
