@@ -2,11 +2,30 @@
 
 <div *ngIf="status">welcome {{username.sub}} you are using gpt3.5 model<br>
 
-<div>
+<!-- .....<div>
     <textarea [(ngModel)]="prompt"></textarea>
     <button (click)="generateText()">Generate Text</button>
-    <!-- <mat-progress-spinner *ngIf="showSpinner" mode="indeterminate"></mat-progress-spinner> -->
     <mat-progress-bar *ngIf="showSpinner" mode="indeterminate"></mat-progress-bar>
     <p>{{ generatedText }}</p>
   </div>
-</div>
+</div>..... -->
+
+<mat-card class="tcg-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Harley Quinn</mat-card-title>
+      <mat-card-subtitle>DC Comics</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="../../../assets/harleyquinn.jpg" alt="Photo of harley quinn">
+    <mat-card-actions>
+        <button button mat-raised-button (click)="showinfo()">More Info</button>
+        <button button mat-raised-button (click)="hideinfo()">Less Info</button>
+        <mat-progress-bar *ngIf="showSpinner" mode="indeterminate"></mat-progress-bar>
+      </mat-card-actions>
+    <mat-card-content>
+      <p *ngIf="popup">
+        {{generatedText}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  </div>

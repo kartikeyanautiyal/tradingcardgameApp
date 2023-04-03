@@ -1,26 +1,14 @@
-.push-right {
-    margin-left: 90%;
+.example-card {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+.tcg-card{
+    max-width: 300px;
+    max-height: 300px;
 }
-
-.person {
-    font-style: italic;
-    font-weight: bold;
-    color: purple;
-}
-
-.bot {    
-    font-weight: bold; 
-    color: darkgreen;
-}
-
-.frame-box{
-    border: dotted 2px orange; padding: 20px;
-    min-height: 400px;
-    max-height: 400px;
-    overflow-y: scroll
-}
-
-
-.padding{
-    padding: 5px;
+  
+  .example-header-image {
+    background-image: url('../../../assets/DC_Comics_logo.svg');
+    background-size: cover;
 }

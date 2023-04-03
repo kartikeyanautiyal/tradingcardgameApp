@@ -4,6 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -35,7 +39,10 @@ import { CardsComponent } from './components/cards/cards.component';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatBottomSheetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

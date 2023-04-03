@@ -7,9 +7,12 @@ import { GptServiceService } from 'src/app/services/gpt-service.service';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
+
 export class CardsComponent implements OnInit {
     prompt = '';
     generatedText = '';
+    demoprompt = 'Harley Quinn';
+    popup = false;
 
     username:any
     token:string | null = localStorage.getItem("token");
@@ -28,7 +31,7 @@ export class CardsComponent implements OnInit {
     
     generateText() {
       this.showSpinner = true;
-      this.gptService.generateText(this.prompt).subscribe(
+      this.gptService.generateText(this.demoprompt).subscribe(
         response => {
           this.showSpinner = false;
           this.generatedText = response.choices[0].message.content;
@@ -37,5 +40,14 @@ export class CardsComponent implements OnInit {
           console.log(error);
         }
       );
+    }
+    
+    showinfo(){
+      this.generateText();
+      this.popup = true;
+    }
+
+    hideinfo(){
+      this.popup = false;
     }
 }
