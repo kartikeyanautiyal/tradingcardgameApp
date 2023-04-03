@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseApi: "localhost:8090/api/v1/user/",
-  apiKey: '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'
+  apiKey: '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'
 };
 
 /*
