@@ -1,18 +1,3 @@
-<!-- <p *ngIf="!status">Please Sign in to get information</p>
-<div *ngIf="status">
-    <h1 class="center text-primary">Welcome {{username.sub}} you are now Chatting With Mr BOT powered by ChatGPT</h1>
-<div class="frame-box">
-    <div *ngFor="let item of chatConversation">
-        <p class="card-text padding" [ngClass]="item.cssClass">
-            {{username.sub}} :  {{getText(item.response)}}                                                                                                            
-        </p>
-        
-    </div>
-    <div><img src="../../../assets/ZNeT.gif" *ngIf="showSpinner" width="50px" height="50px"></div>
-</div>
-<br>
-<textarea row="3" cols="15" class="form-control" [(ngModel)]="promptText" placeholder="Start by asking what you are looking for"></textarea><br>
-<button class="btn btn-primary push-right" (click)="checkResponse()">Send</button></div> -->
 <p *ngIf="!status">Please Sign in to get information</p>
 
 <div *ngIf="status">welcome {{username.sub}} you are using gpt3.5 model<br>
