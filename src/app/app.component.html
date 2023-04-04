@@ -16,10 +16,14 @@
   </ul>
   <div class="navbar-nav ms-auto text-white">
     <li>
-      <a class="nav-item" href="/register" class="nav-link">Sign-up</a>
+      <div *ngIf="!loginservice.user_loggedIn">
+        <a class="nav-item" href="/register" class="nav-link">Sign-up</a>
+      </div>
     </li>
     <li>
-      <a class="nav-item" href="/sign-in" class="nav-link">Login</a>
+      <div *ngIf="!loginservice.user_loggedIn">
+        <a class="nav-item" href="/sign-in" class="nav-link">Login</a>
+      </div>
     </li>
     <li>
       <a class="nav-item" href="/logout" class="nav-link">logout</a>
