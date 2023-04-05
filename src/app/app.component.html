@@ -16,12 +16,12 @@
   </ul>
   <div class="navbar-nav ms-auto text-white">
     <li>
-      <div *ngIf="!loginservice.user_loggedIn">
+      <div *ngIf="!loginservice.isloggedIn()">
         <a class="nav-item" href="/register" class="nav-link">Sign-up</a>
       </div>
     </li>
     <li>
-      <div *ngIf="!loginservice.user_loggedIn">
+      <div *ngIf="!loginservice.isloggedIn()">
         <a class="nav-item" href="/sign-in" class="nav-link">Login</a>
       </div>
     </li>

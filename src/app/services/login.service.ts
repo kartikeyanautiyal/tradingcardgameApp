@@ -11,7 +11,6 @@ export class LoginService {
   current_user: any | null
   private _saveUser = "http://localhost:8090/api/v1/user/register";
   private _getuser = "http://localhost:8090/api/v1/user/login";
-  user_loggedIn = false;
   constructor(private http: HttpClient, private router:Router) {
   }
 
@@ -20,6 +19,8 @@ export class LoginService {
     this.http.post(this._saveUser, credentials).subscribe(
       (result) => {
         console.log(result);
+        alert("user registered successfully");
+        this.router.navigate(["sign-in"]);
       }
     )
   }
@@ -31,7 +32,7 @@ export class LoginService {
           localStorage.setItem("token", result.token);
           this.router.navigate(['home']);
           alert("login Successful");
-          this.user_loggedIn = true;
+          localStorage.setItem("user_loggedIn", "yes");
         }
       },
       (error) => {    
@@ -43,10 +44,14 @@ export class LoginService {
 
   logout(){
     localStorage.removeItem("token");
-    this.user_loggedIn = false;
+    localStorage.removeItem("user_loggedIn");
   }
 
   isloggedIn(){
-    return this.user_loggedIn;
+    let user = localStorage.getItem("user_loggedIn");
+    if(user == "yes")
+      return true;
+    
+      return false;
   }
 }

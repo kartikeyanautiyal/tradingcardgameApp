@@ -12,6 +12,5 @@ export class AppComponent{
   title = 'TCGapplication';
 
   constructor(public loginservice: LoginService){
-    this.user_loggedIn = loginservice.user_loggedIn;
   }
 }
